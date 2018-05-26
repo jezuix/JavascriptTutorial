@@ -4,10 +4,17 @@
 <head>
     <title>Curso Javascript Completo 2018</title>
     <meta charset="utf-8">
+
+    <style>
+        .done {
+            text-decoration: line-through;
+            color: #555;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container"> 
+    <div class="container">
         <h1>Curso Javascript Completo 2018</h1>
 
         <input type="text" id="txtTask">
@@ -29,16 +36,30 @@
             var $btn = document.querySelector('#btn');
 
             $btn.addEventListener('click', AddTask);
-            $txtTask.addEventListener('keyup', function(e){
-                if (e.keyCode === 13){
+            $txtTask.addEventListener('keyup', function (e) {
+                if (e.keyCode === 13) {
                     AddTask()
                 }
             });
 
-            function AddTask(){
-                var task = '<li>' + $txtTask.value + '</li>';
-                
-                $ul.innerHTML += task;
+            $ul.addEventListener('click', function (e) {
+                if (e.target.nodeName === 'LI') {
+                    removeTask(e.target);
+                }
+            });
+
+            function removeTask(li) {
+                if (confirm('Deseja realmente excluir a tarefa  \n' + li.textContent + '?')) {
+                    li.parentNode.removeChild(li);
+                }
+            }
+
+            function AddTask() {
+                var li = document.createElement('li');
+                var text = document.createTextNode($txtTask.value);
+
+                li.appendChild(text);
+                $ul.appendChild(li);
 
                 $txtTask.value = '';
                 $txtTask.focus();
