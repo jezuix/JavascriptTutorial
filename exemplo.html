@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Curso Javascript Completo 2018</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Curso Javascript Completo 2018</h1>
+
+        <button id="btn1" onclick="clicar()">botao 1</button>
+        <button id="btn2">botao 2</button>
+        <button id="btn3">botao 3</button>
+    </div>
+    <script>
+
+        var btn2 = document.getElementById('btn2');
+        var btn3 = document.getElementById('btn3');
+        btn2.onclick = clicar;
+
+        function clicar()
+        {
+            alert('clicou')
+        }
+
+        btn3.addEventListener("click", function(){
+            alert('clicou com DOM level 2')
+        })
+        btn3.addEventListener("click", function(){
+            alert('clicou com DOM level 2 com outro evento')
+        })
+    </script>
+</body>
+
+</html>
