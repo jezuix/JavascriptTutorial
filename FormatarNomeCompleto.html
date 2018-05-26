@@ -9,14 +9,28 @@
 <body>
     <div class="container">
         <h1>Curso Javascript Completo 2018</h1>
-        
+
     </div>
 
     <script>
-        (function () {
-            'use strict';
-            
-        })()
+        var nome = "Rodolpho Rangel de Barros";
+
+        var nomeFormatado = formatarNome(nome);
+
+        console.log('nomeFormatado', nomeFormatado);
+        
+
+        function formatarNome(nome) {
+            var posicaoUltimoEspaco = nome.lastIndexOf(' ');
+            if (posicaoUltimoEspaco <= 0) {
+                return nome;
+            }
+
+            var ultimoNome = nome.slice(posicaoUltimoEspaco);
+            var primeironome = nome.slice(0, posicaoUltimoEspaco);
+
+            return ultimoNome + ', ' + primeironome; 
+        }
     </script>
 </body>
 
