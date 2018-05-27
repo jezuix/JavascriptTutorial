@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Curso Javascript Completo 2018</title>
+    <meta charset="utf-8">
+
+    <script>
+        (function () {
+            window.addEventListener('load', init)
+
+            function init() {
+                var $paragrafos = document.querySelectorAll('p');
+                var x = 0;
+
+                while ($paragrafos[x]) {
+                    $paragrafos[x].innerHTML = formatarTexto($paragrafos[x].innerHTML);
+                    x++;
+                }
+            }
+
+            function formatarTexto(texto) {
+                var numeroMaximoCaracteres = 200;
+                if (texto.length <= numeroMaximoCaracteres){
+                    return texto;
+                }
+
+                var subtexto = texto.slice(0, numeroMaximoCaracteres);
+                return subtexto + '...';
+            }
+        })()
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Curso Javascript Completo 2018</h1>
+
+        <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado
+            desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um
+            livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração
+            eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou
+            decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de
+            editoração eletrônica como Aldus PageMaker.</p>
+        <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado
+            desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um
+            livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração
+            eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou
+            decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de
+            editoração eletrônica como Aldus PageMaker.tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também
+            ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60,
+            quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser
+            integrado a softwares de editoração eletrônica como Aldus PageMaker.</p>
+        <p>Lorem Ipsum é simplesmente uma simulação d.</p>
+
+    </div>
+
+
+</body>
+
+</html>
