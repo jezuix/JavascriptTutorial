@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Curso Javascript Completo 2018</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Curso Javascript Completo 2018</h1>
+    </div>
+
+    <script>
+        window.addEventListener('load', function () {
+            console.log('load disparado');
+        });
+        
+        window.addEventListener('DOMContentLoaded', function () {
+            console.log('DOMContentLoaded disparado');
+        });
+
+        window.addEventListener('resize', function (e) {
+            console.log('resize disparado');
+            console.log(e);
+        })
+
+        window.addEventListener('scroll', function (e) {
+            console.log('scroll disparado');
+            console.log(e);
+            console.log('scroll Y', pageYOffset);
+        });
+
+        window.addEventListener('unload', function () {
+            console.log('unload disparado');
+        })
+
+        window.addEventListener('beforeunload', function () {
+            console.log('beforeunload disparado');
+        })
+    </script>
+</body>
+
+</html>
