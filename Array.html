@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Curso Javascript Completo 2018</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Curso Javascript Completo 2018</h1>
+    </div>
+
+    <script>
+        var arr = [1, 2, 3, 4, 5];
+
+        var soNumeros = arr.every(function (el, indice, obj) {
+            return typeof el === 'number';
+        });
+
+        var aoMenosUmNumero = arr.some(function (el) {
+            return typeof el === 'number';
+        });
+
+        var numeros = arr.filter(function (el) {
+            return typeof el === 'number';
+        });
+
+        arr.forEach(function (el, indice, arr) {
+            console.log('el', el, '| indice', i, '| i -', arr.toString());
+        });
+
+        var posicaoStr1 = arr.indexOf('kjjk');
+        console.log('Posicao', posicaoStr1);
+
+        var posicaoStr2 = arr.lastIndexOf(20);
+        console.log('Posicao', posicaoStr2);
+
+        numeros = numeros.map(function (el, indice, arr) {
+            return el * indice;
+        });
+
+        var arr2 = arr.concat(numeros, 'ola', 'arr2'); //Adiciona itens no array
+
+        var str = arr2.toString(); //Concatena todos os itens do array
+
+        var str2 = arr2.join(' -- '); //Concatena todos os itens do array usando o parâmetro como separador
+
+        arr.push('novo', 'item'); //Adiciona itens ao array
+
+        var ultimoItem = arr.pop(); //Remove o ultimo item do array (retorna o valor removido)
+
+        var primeiroItem = arr.shift(); //Remove o primeiro item do array (retorna o valor removido)
+
+        arr.unshift(true, false, 'unshift'); //Adiciona itens no array no inicio da array
+
+        var somaDeArr = numeros.reduce(function (anterior, atual) { //Faz uma função com 2 itens do array ... o parâmetro pode ser enviado como um valor inicial
+            return anterior + atual;
+        }, 1);
+
+        var arr = [10, 20, 30];
+        arr.reverse(); //Inverte os itens da array
+
+        //Monta uma nova array removendo os primeiros itens (iniciando no indice do primeiro parametro) até o item da posição do segundo parametro 
+        //(se não informado vai até o fim do array)
+        console.log(arr2.slice(2, 5));
+
+        //Remove itens a partir do indice do parâmetro 1 e remove a quantidade do parâmetro 2 e adiciona no lugar os próximos parametros.
+        //Retorna um array com os itens excluidos
+        var arr3 = arr2.splice(2, 3, 'limao', 'melao');
+    </script>
+</body>
+
+</html>
