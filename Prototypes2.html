@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Curso Javascript Completo 2018</title>
+    <meta charset="utf-8">
+
+    <script src="beluga2.js"></script>
+
+
+</head>
+
+<body>
+    <h1>Curso Javascript Completo 2018</h1>
+
+</body>
+
+<script>
+    function Animal(tipo) {
+        if (tipo) this.tipo = tipo;
+    }
+
+    function Cachorro(nome, tipo){
+        this.nome = nome;
+        Animal.call(this, tipo);
+
+        this.constructor = Cachorro;
+    }
+
+    Cachorro.prototype = new Animal(this.tipo);
+
+    var toto = new Cachorro('toto', 'mamifero');
+    console.log(toto);
+
+    Animal.prototype.obtemTipo = function () {
+        return this.tipo;
+    }
+
+    Animal.prototype.tipo = 'desconhecido';
+
+    var lesma = new Animal();
+</script>
+
+</html>
