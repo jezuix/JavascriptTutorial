@@ -2,7 +2,7 @@ var blg = (function () {
     var beluga = {};
 
     beluga.$ = document.querySelector.bind(document);
-    beluga.$S = document.querySelectorAll.bind(document);
+    beluga.$$ = document.querySelectorAll.bind(document);
 
     Array.prototype.getMedia = function () {
         // return _calcularMedia.apply(this, this);
@@ -22,6 +22,13 @@ var blg = (function () {
     }
 
     beluga.calcularMedia = _calcularMedia;
+
+    function _each(sel, fn){
+        var _sel = this.$$(sel);
+        Array.prototype.forEach.call(_sel, fn);
+    }
+
+    beluga.each = _each;
 
     return beluga;
 })()
