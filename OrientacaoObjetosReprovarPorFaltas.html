@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Curso Javascript Completo 2018</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Curso Javascript Completo 2018</h1>
+
+    </div>
+    <script>
+        class Aluno {
+            constructor(nome) {
+                this.nome = nome;
+                this._faltas = 0;
+            }
+            adicionarFaltas() {
+                this._faltas++;
+                console.log(`${this.nome} tem ${ this._faltas} faltas.`)
+            }
+        }
+
+        class ListaAlunos {
+            constructor(_lista) {
+                this.lista = [].concat(_lista);
+            }
+            obterAluno(nome) {
+                return this.lista.filter(aluno => aluno.nome === nome)[0];
+            }
+            obterAlunosReprovadosPorFaltas(){
+                var faltasPermitidas = ListaAlunos.faltasPermitidas;
+                return this.lista.filter(aluno => aluno._faltas > faltasPermitidas);
+            }
+
+            static get faltasPermitidas(){
+                return 5; 
+            }
+        }
+
+        var alunos = ['Maria', 'Jose', 'Joao'].map(aluno => new Aluno(aluno));
+        var lista = new ListaAlunos(alunos);
+    </script>
+</body>
+
+</html>

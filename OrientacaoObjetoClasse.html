@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Curso Javascript Completo 2018</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Curso Javascript Completo 2018</h1>
+
+    </div>
+    <script>
+        //EC5
+        function ContaCorrente(cliente, numero) {
+            //'use strict';
+            if (this instanceof ContaCorrente) {
+                this.cliente = cliente;
+                this.numero = numero;
+            } else {
+                return new ContaCorrente(cliente, numero);
+                // throw new Error('Conta Corrent só pode ser utilizada com operador new.');
+            }
+        }
+
+        //EC6
+        class ContaPoupanca {
+            constructor(cliente, numero) {
+                this.cliente = cliente;
+                this.numero = numero;
+            }
+        }
+    </script>
+</body>
+
+</html>
