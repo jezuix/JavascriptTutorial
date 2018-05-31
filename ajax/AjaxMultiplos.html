@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Curso Javascript Completo 2018</title>
+    <meta charset="utf-8">
+
+    <script src="beluga2.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Curso Javascript Completo 2018</h1>
+
+        <dl id="lista-usuarios">
+        </dl>
+    </div>
+
+    <script>
+        let $listaUsuarios = blg.$('#lista-usuarios');
+
+        function getUser(id, callback) {
+            let xhr = new XMLHttpRequest();
+            let url = `http://jsonplaceholder.typicode.com/users/${id}`;
+
+            xhr.open("GET", url);
+            xhr.send(null);
+            xhr.onreadystatechange = function () {
+
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200 || xhr.status === 304) {
+                        let resposta = xhr.responseText;
+                        resposta = JSON.parse(resposta);
+                        //mostraUsuarios(resposta);
+
+                        if (callback && typeof callback === "function")
+                            callback(resposta);
+                    } else {
+                        alert('deu ruim');
+                        console.log(xhr);
+                    }
+                }
+            }
+        }
+
+        function mostraUsuarios(usuario) {
+            adicionarElemento($listaUsuarios, 'dt', usuario.id);
+            adicionarElemento($listaUsuarios, 'dd', usuario.name, usuario.email, usuario.phone, usuario.website);
+        }
+
+        function adicionarElemento(container, tag, ...text) {
+            [...text].forEach(str => {
+                var _tag = document.createElement(tag);
+                var _textNode = document.createTextNode(str);
+                _tag.appendChild(_textNode);
+                container.appendChild(_tag);
+            })
+        }
+
+        getUser(1, function (usuario) {
+            mostraUsuarios(usuario);
+            getUser(2, function (usuario) {
+                mostraUsuarios(usuario);
+                getUser(3, function (usuario) {
+                    mostraUsuarios(usuario);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

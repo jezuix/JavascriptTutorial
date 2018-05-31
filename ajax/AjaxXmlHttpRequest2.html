@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Curso Javascript Completo 2018</title>
+    <meta charset="utf-8">
+
+    <script src="beluga2.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Curso Javascript Completo 2018</h1>
+
+        <dl id="lista-usuarios">
+        </dl>
+    </div>
+
+    <script>
+        let xhr = new XMLHttpRequest();
+        let url = "http://jsonplaceholder.typicode.com/users/";
+        let $listaUsuarios = blg.$('#lista-usuarios');
+
+        xhr.open("GET", url);
+        xhr.send(null);
+        xhr.onreadystatechange = verificaAjax;
+
+        function verificaAjax() {
+            //console.log(xhr.readyState);
+            //console.log(xhr.status);
+
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200 || xhr.status === 304) {
+                    //console.log(xhr.responseText);
+                    let resposta = xhr.responseText;
+                    resposta = JSON.parse(resposta);
+                    mostraUsuarios(resposta);
+                } else {
+                    alert('deu ruim');
+                    console.log(xhr);
+                }
+            }
+
+            function mostraUsuarios(usuarios) {
+                const fragmento = document.createDocumentFragment();
+                usuarios.forEach(usuario => {
+                    adicionarElemento(fragmento, 'dt', usuario.name);
+                    adicionarElemento(fragmento, 'dd', usuario.email, usuario.phone, usuario.website);
+                });
+                $listaUsuarios.appendChild(fragmento);
+            }
+
+            function adicionarElemento(container, tag, ...text) {
+                [...text].forEach(str => {
+                    var _tag = document.createElement(tag);
+                    var _textNode = document.createTextNode(str);
+                    _tag.appendChild(_textNode);
+                    container.appendChild(_tag);
+                })
+
+            }
+        }
+    </script>
+</body>
+
+</html>
