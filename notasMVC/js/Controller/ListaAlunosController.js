@@ -21,12 +21,28 @@ class ListaAlunosController {
         if (target) {
             let _id = parseInt(target.getAttribute('data-id'));
             let _notas = prompt('Digite as novas notas separadas por virgulas');
+
+            if (!_notas) return;
+
             _notas = _notas.split(',').map(nota => parseFloat(nota));
-            
+
             let aluno = this.model.obterPorId(_id);
             aluno.atualizarNotas(_notas);
 
             this.view.atualiza(this.model);
         }
+    }
+
+    adicionarAluno(nome, notas) {
+        this.model.adicionarAluno(new Aluno(nome, notas));
+        this.view.atualiza(this.model);
+    }
+
+    atualizaLista(alunos) {
+        this.view.atualiza(alunos);
+    }
+
+    limparFiltro() {
+        this.view.atualiza(this.model);
     }
 }
