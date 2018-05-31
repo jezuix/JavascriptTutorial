@@ -6,13 +6,23 @@ class FormAdicionaAlunoView extends View {
 
     getTemplate() {
         return `
-        <form action="#">
-            <input type="text" id="nome" required>
-            <input type="number" id="nota1" required min="0" max="10">
-            <input type="number" id="nota2" required min="0" max="10">
-            <input type="number" id="nota3" required min="0" max="10">
-            <input type="number" id="nota4" required min="0" max="10">
-            <button type="submit">Adicionar</button>
+        <form class="form-inline">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Nome" name="nome" id="nome" required>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="nota1" min="0" max="10" name="nota1" id="nota1" required>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="nota2" min="0" max="10" name="nota2" id="nota2" required>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="nota3" min="0" max="10" name="nota3" id="nota3" required>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="nota4" min="0" max="10" name="nota4" id="nota4" required>
+            </div>
+            <button type="submit" class="btn btn-default">Adicionar</button>
         </form>
         `;
     }
