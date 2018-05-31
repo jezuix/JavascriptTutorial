@@ -27,7 +27,7 @@
                 if (!resposta.ok) {
                     throw new Error('Erro - Arquivo nao existe');
                 }
-                return resposta.json();
+                return await resposta.json();
             });
         }
 
