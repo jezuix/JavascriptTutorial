@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Curso Javascript Completo 2018</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div class="content">
+        <h1>Curso Javascript Completo 2018</h1>
+
+    </div>
+    <script>
+        var str = 'o pato chato tem sapato de gato';
+        var regex = /([gp]|ch)ato/g;
+        var arr;
+
+        while (arr = regex.exec(str)) {
+            var msg = 'Encontrei ' + arr[0] + ' em ' + arr.index + '.';
+            msg += 'Proximo comeca em ' + regex.lastIndex;
+            console.log(msg);
+        }
+    </script>
+</body>
+
+</html>
