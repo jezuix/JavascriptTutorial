@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Curso Javascript Completo 2018</title>
+    <meta charset="utf-8">
+
+    <script src="beluga2.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Curso Javascript Completo 2018</h1>
+    </div>
+
+    <script>
+        //rest
+        function mostraNomes(...nomes) {
+            nomes.forEach(nome => console.log(nome));
+        }
+        mostraNomes('Teste', 'Rodolpho', 'Jovem', 'That', 'Jhon');
+
+        //spread
+        let listaNomes = ['Teste', 'Rodolpho', 'Jovem', 'That', 'Jhon'];
+        mostraNomes(...listaNomes);
+
+        let lista2 = ['ricardo', 'eliana'];
+
+        var novaListaNomes = [...listaNomes, 'luana', ...lista2];
+
+        let ps = document.querySelectorAll('p');
+        [...ps].forEach(p => console.log(p.textContent));
+
+        const daniel = {
+            nome: 'daniel',
+            idade: 18
+        };
+
+        const daniel2 = { ...daniel,
+            notas: [1, 2, 3]
+        };
+    </script>
+</body>
+
+</html>

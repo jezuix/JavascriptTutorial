@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Curso Javascript Completo 2018</title>
+    <meta charset="utf-8">
+
+    <script src="beluga2.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Curso Javascript Completo 2018</h1>
+    </div>
+
+    <script>
+        var n = 0;
+
+        function mostraN() {
+            console.log('n', n);
+            var n = 1;
+            // do {
+            //     let n = 20;
+            //     console.log('n', n);
+            // } while (false)
+        }
+
+        mostraN();
+        console.log('n', n);
+
+        const daniel = {
+            nome: 'daniel',
+            idade: 18,
+            notas: [1, 2, 3, 4]
+        }
+
+        Object.freeze(daniel);
+    </script>
+</body>
+
+</html>
