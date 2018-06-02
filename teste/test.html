@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Curso Javascript Completo 2018</title>
+    <meta charset="utf-8">
+
+    <script src="spec.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Curso Javascript Completo 2018</h1>
+
+        <script>
+            assert.describe('Teste A', () => {
+                assert(true, 'deve ser verdadeiro');
+                assert(false, 'nao deve passar no teste');
+            });
+            assert.describe('Teste B', () => {
+                assert(true, 'deve ser verdadeiro');
+                assert("false", 'deve ser verdadeiro');
+                assert(1, 'deve ser verdadeiro');
+                assert(null, 'nao deve passar no teste');
+                assert(undefined, 'nao deve passar no teste');
+            });
+        </script>
+</body>
+
+</html>
